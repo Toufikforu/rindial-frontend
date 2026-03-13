@@ -1,5 +1,5 @@
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const menu = [
@@ -16,26 +16,32 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <NavLink to="/" className="flex items-center gap-2">
           <img src={logo} alt="RinDial" className="h-20" />
-        </Link>
+        </NavLink>
 
         {/* Menu */}
         <nav>
           <ul className="flex gap-8 text-sm font-medium text-white">
             {menu.map((item) => (
               <li key={item.name}>
-                <Link
+                <NavLink
                   to={item.path}
-                  className="hover:text-red-500 transition"
+                  end={item.path === "/"}
+                  className={({ isActive }) =>
+                    `transition ${
+                      isActive
+                        ? "text-[#c53443]"   // active color from pricing page
+                        : "hover:text-red-500"
+                    }`
+                  }
                 >
                   {item.name}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
         </nav>
-
       </div>
 
       {/* Red glow line */}

@@ -7,6 +7,10 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
 import WebsiteDisclaimerPage from "./pages/WebsiteDisclaimerPage";
 import ContactPage from "./pages/ContactPage";
+import AboutUsPage from "./pages/AboutUsPage";
+import ServicesPage from "./pages/ServicesPage";
+import PricingPage from "./pages/PricingPage";
+
 
 function App() {
   return (
@@ -71,6 +75,33 @@ function App() {
 			</Layout>
 		  }
 		/>
+		
+		<Route
+		  path="/about"
+		  element={
+			<Layout>
+			  <AboutUsPage />
+			</Layout>
+		  }
+		/>		
+		<Route
+		  path="/services"
+		  element={
+			<Layout>
+			  <ServicesPage />
+			</Layout>
+		  }
+		/>
+		
+		<Route
+		  path="/pricing"
+		  element={
+			<Layout>
+			  <PricingPage />
+			</Layout>
+		  }
+		/>
+		
     </Routes>
   );
 }

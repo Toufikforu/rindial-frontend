@@ -1,0 +1,176 @@
+.about-us-page {
+  background: linear-gradient(to right, #ffffff 0%, #f8f8f8 55%, #f3f3f3 100%);
+  padding: 40px 0 70px;
+  min-height: 100vh;
+}
+
+.about-us-top {
+  text-align: center;
+  margin-bottom: 35px;
+  padding: 0 20px;
+}
+
+.about-us-top h1 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #b5121b;
+}
+
+.about-us-top h2 {
+  margin: 18px 0 0;
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #202020;
+}
+
+.about-us-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+}
+
+.about-us-image {
+  min-height: 620px;
+  background-image: url("../assets/about-us-office.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* If image is missing, this gives a clean fallback */
+.about-us-image:empty {
+  background-color: #d9d9d9;
+}
+
+.about-us-text {
+  padding: 40px 55px 40px 55px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.72),
+    rgba(255, 255, 255, 0.9)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.about-check {
+  color: #b5121b;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 700;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.about-item p {
+  margin: 0;
+  color: #333333;
+  font-size: 20px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.about-btn {
+  margin-top: 10px;
+  align-self: center;
+  background: linear-gradient(to bottom, #d81f2d, #a90f1a);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 18px 42px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.about-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+@media (max-width: 1100px) {
+  .about-us-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-us-image {
+    min-height: 360px;
+  }
+
+  .about-us-text {
+    padding: 35px 24px;
+  }
+
+  .about-us-top h1 {
+    font-size: 42px;
+  }
+
+  .about-us-top h2 {
+    font-size: 24px;
+  }
+
+  .about-item p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-page {
+    padding: 30px 0 50px;
+  }
+
+  .about-us-top h1 {
+    font-size: 34px;
+  }
+
+  .about-us-top h2 {
+    font-size: 20px;
+  }
+
+  .about-us-image {
+    min-height: 260px;
+  }
+
+  .about-us-text {
+    padding: 28px 18px;
+  }
+
+  .about-item {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .about-check {
+    font-size: 26px;
+  }
+
+  .about-item p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .about-btn {
+    width: 100%;
+    max-width: 320px;
+    font-size: 18px;
+    padding: 16px 24px;
+  }
+}
