@@ -1,189 +1,123 @@
 import React from "react";
 import {
-  FaPhoneVolume,
-  FaHeadset,
-  FaBolt,
+  FaCalendarAlt,
+  FaMobileAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaDesktop,
   FaChartLine,
-  FaUsers,
-  FaCheckCircle,
 } from "react-icons/fa";
 import "./PricingPage.css";
 
-const pricingPlans = [
-  { calls: "750 Calls", rate: "$0.06 / call", price: "$45", featured: false },
-  { calls: "2,500 Calls", rate: "$0.06 / call", price: "$150", featured: false },
-  { calls: "5,000 Calls", rate: "$0.06 / call", price: "$300", featured: true },
-  { calls: "10,000 Calls", rate: "$0.06 / call", price: "$600", featured: false },
-  { calls: "25,000 Calls", rate: "$0.055 / call", price: "$1,375", featured: false },
-  { calls: "75,000 Calls", rate: "$0.055 / call", price: "$4,125", featured: false },
-  { calls: "100,000 Calls", rate: "$0.05 / call", price: "$5,000", featured: true },
-];
+import pricingSideImg1 from "../assets/pricing-pic-1.webp";
+import pricingSideImg2 from "../assets/pricing-pic-2.webp";
+import pricingSideImg3 from "../assets/pricing-pic-3.webp";
+import pricingBottomBg from "../assets/pricing-bottom-bg.webp";
 
-const features = [
+const pricingItems = [
   {
-    icon: <FaPhoneVolume />,
-    title: "High-Volume Robo Dialing",
-    text: "Launch automated outreach campaigns quickly with dependable call delivery at every pricing tier.",
+    icon: <FaCalendarAlt />,
+    title: "Monthly Credits",
+    content: (
+      <>
+        We include an <span className="emphasis">“Anyway you like it”</span>{" "}
+        <span className="red-text">200</span> credits each month.
+      </>
+    ),
   },
   {
-    icon: <FaHeadset />,
-    title: "Campaign Ready",
-    text: "Perfect for political campaigns, voter engagement, event reminders, fundraising pushes, and announcements.",
+    icon: (
+      <div className="combined-icon">
+        <FaMobileAlt />
+        <FaEnvelope />
+      </div>
+    ),
+    title: "Affordable Rates",
+    content: (
+      <>
+        Our robocall, email packages, &amp; phone bank credits start at{" "}
+        <span className="big-red">$0.055</span> per feature
+      </>
+    ),
   },
   {
-    icon: <FaBolt />,
-    title: "Fast Setup",
-    text: "Get your message live faster with a streamlined platform built to support fast-moving campaign operations.",
+    icon: <FaDesktop />,
+    title: "Digital Billboards",
+    content: (
+      <button className="pricing-inline-btn">
+        CLICK HERE TO REQUEST PRICING
+      </button>
+    ),
   },
   {
     icon: <FaChartLine />,
-    title: "Scalable Pricing",
-    text: "Lower per-call pricing at higher volumes helps your campaign maximize outreach while managing budget efficiently.",
+    title: "Fundraising Bonus",
+    content: <>Fundraising data included as a product bonus</>,
   },
 ];
 
-const PricingPage = () => {
+const dialerPlans = [
+  { volume: "750", rate: "$0.06", total: "$45" },
+  { volume: "2,500", rate: "$0.06", total: "$150" },
+  { volume: "5,000", rate: "$0.06", total: "$300" },
+  { volume: "10,000", rate: "$0.06", total: "$600" },
+  { volume: "25,000", rate: "$0.055", total: "$1,375" },
+  { volume: "75,000", rate: "$0.055", total: "$4,125" },
+  { volume: "100,000", rate: "$0.05", total: "$5,000" },
+];
+
+export default function PricingPage() {
   return (
     <main className="pricing-page">
       <section className="pricing-hero">
-        <div className="pricing-hero-overlay" />
         <div className="pricing-container">
-          <div className="pricing-hero-content">
-            <span className="pricing-label">Pricing</span>
-            <h1>Simple Robo Dialer Pricing for Every Campaign Size</h1>
-            <p>
-              Whether you are reaching hundreds or hundreds of thousands of voters,
-              <strong> RinDial&apos;s Robo Dialer </strong>
-              gives you flexible pricing, reliable outreach, and a platform built
-              for campaign success.
-            </p>
+          <div className="pricing-layout">
+            {/* Left Content */}
+            <div className="pricing-left">
+              <div className="pricing-top-copy">
+                <p className="pricing-kicker">
+                  TURNKEY ROBOCALLS &amp; PHONE BANK SERVICES
+                </p>
 
-            <div className="pricing-hero-badges">
-              <div className="hero-badge">
-                <FaUsers />
-                <span>Built for campaigns</span>
+                <h1 className="pricing-main-title">
+                  Our All-Inclusive Back-Off Product Starts at{" "}
+                  <span>$1,199.99</span>
+                </h1>
+
+                <p className="pricing-subtitle">This is a one-time fee</p>
               </div>
-              <div className="hero-badge">
-                <FaPhoneVolume />
-                <span>Scalable voice outreach</span>
+
+              <div className="pricing-features">
+                {pricingItems.map((item, index) => (
+                  <div className="pricing-feature-row" key={index}>
+                    <div className="pricing-feature-icon">{item.icon}</div>
+                    <div className="pricing-feature-content">
+                      <h3>{item.title}</h3>
+                      <div className="pricing-feature-text">{item.content}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="hero-badge">
-                <FaCheckCircle />
-                <span>Transparent rates</span>
+            </div>
+
+            {/* Right Images */}
+            <div className="pricing-right">
+              <div className="pricing-side-card">
+                <img src={pricingSideImg1} alt="Campaign dashboard mobile view" />
+              </div>
+
+              <div className="pricing-side-card">
+                <img src={pricingSideImg2} alt="Digital billboard campaign ad" />
+              </div>
+
+              <div className="pricing-side-card">
+                <img src={pricingSideImg3} alt="Campaign mobile reporting screen" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="pricing-cards-section">
-        <div className="pricing-container">
-          <div className="section-heading">
-            <h2>Choose the Right Call Volume</h2>
-            <p>
-              Start with a smaller package or scale up with discounted rates for
-              larger outreach campaigns.
-            </p>
-          </div>
-
-          <div className="pricing-grid">
-            {pricingPlans.map((plan, index) => (
-              <div
-                key={index}
-                className={`pricing-card ${plan.featured ? "featured" : ""}`}
-              >
-                {plan.featured && <div className="pricing-badge">Popular</div>}
-
-                <h3>{plan.calls}</h3>
-                <p className="pricing-rate">{plan.rate}</p>
-                <div className="pricing-price">{plan.price}</div>
-
-                <ul>
-                  <li>Automated voice outreach</li>
-                  <li>Fast campaign activation</li>
-                  <li>Reliable call delivery</li>
-                  <li>Built for voter contact</li>
-                </ul>
-
-                <button className="pricing-btn">Get Started</button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pricing-features-section">
-        <div className="pricing-container">
-          <div className="section-heading">
-            <h2>Why Campaigns Choose Our Robo Dialer</h2>
-            <p>
-              Our platform is designed to help teams communicate clearly, move
-              quickly, and reach more voters with confidence.
-            </p>
-          </div>
-
-          <div className="features-grid">
-            {features.map((item, index) => (
-              <div key={index} className="feature-box">
-                <div className="feature-icon">{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pricing-info-section">
-        <div className="pricing-container pricing-info-wrap">
-          <div className="pricing-info-left">
-            <span className="pricing-small-title">Built for Results</span>
-            <h2>Flexible Pricing That Supports Growth</h2>
-            <p>
-              From local outreach to large-scale voter contact, RinDial helps your
-              campaign stay organized and effective. As your volume increases, your
-              rate drops — helping you reach more people while keeping costs under
-              control.
-            </p>
-            <p>
-              Our Robo Dialer is ideal for campaign reminders, GOTV messaging,
-              announcements, volunteer coordination, fundraising follow-ups, and
-              rapid-response communication.
-            </p>
-          </div>
-
-          <div className="pricing-info-right">
-            <div className="info-panel">
-              <h3>Included With Every Package</h3>
-              <div className="info-list">
-                <div><FaCheckCircle /> Automated outbound calling</div>
-                <div><FaCheckCircle /> Campaign-friendly pricing</div>
-                <div><FaCheckCircle /> Easy package scaling</div>
-                <div><FaCheckCircle /> Professional outreach support</div>
-                <div><FaCheckCircle /> Political communication use cases</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pricing-cta-section">
-        <div className="pricing-container">
-          <div className="pricing-cta-box">
-            <h2>Ready to Launch Your Robo Dialer Campaign?</h2>
-            <p>
-              Pick the volume that fits your outreach goals and start connecting
-              with voters, supporters, and communities more efficiently.
-            </p>
-            <div className="pricing-cta-buttons">
-              <button className="primary-btn">Schedule a Consultation</button>
-              <button className="secondary-btn">Contact Sales</button>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
-};
-
-export default PricingPage;
+}
